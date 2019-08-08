@@ -1,0 +1,134 @@
+# Machine Learning techniques
+		*  Regression/Estimation
+			* Predicting continuous values
+		* Classification
+			* Predicting the item class/category of a case
+		* Clustering
+			* Finding the structure of data; summarization
+		* Associations
+			* Associating frequent co-occuring items/events
+		* 	Anomaly detection
+			* Discovering abnormal and unusual cases
+		* 	Sequence mining
+			* Predicting next events; click-stream(Markov Model, HMM)
+		* Dimension Reduction
+			* reduce the size of data (PCA)
+		* 	Recommendation systems
+			* recommending items
+	
+AI Components:
+		* 	Making computers intelligent in order to mimic the cognitive function of humans
+		* Computer vision 
+		* Language Processing 
+		* Creativity
+
+Machine learning
+	Its the branch of ai that covers the statistical part of ai. It teaching a computer to solve problems by looking over thousands of examples. It teaching a computer to learn from them, and then using that experience to solve the same problem in new situations
+
+		* Classification
+		* Clustering
+		* Neural Network
+		* etc
+Revolution in ML:
+		*  Deep learning -> special field of machine learning where computer can actually learn and make intelligent decision on their own.
+			* Involves a deeper level of automation in comparison with most machine learning algorithms
+Machine Learning applications
+Machine learning algorithms
+
+# Python for Machine Learning
+Python libraries for machine learning
+		* 	Numpy -> is a math library that allows you to work with n dimensional arrays in python. You can do computation efficiently and effectively
+		* SciPy - > is a collection of numerical algorithms and domain-specific toolboxes, including signal processing, optimization, statistics and much more.
+			* very good library for scientific and high-performance computation.
+		* 	Matplotlib is a very popular plotting package that provides 2d plotting as well as 3d plotting
+Basic knowledge about these 3 packages, built on top of python is a good asset for data scientist
+
+		* 	pandas library -> A very high-level python library that provides high-performance, easy to use data structures. It has many functions for data importing, manipulation and analysis in particular, it offers data structure and operations for manipulating numerical tables and time series
+			* 
+scikit-learn is a collection of algorithms and tools for machine learning, which is our focus here. 
+
+
+# Scikit-learn
+
+		* Free software machine learning library
+		* Classification, Regression and Clustering algorithms
+		* Designed to work with Numpy and Scipy
+		* it includes a very good documentaion
+		* Easy to implement with a few lines of python code
+		* most of the task that need to be done in a machine learning pipeline are implemented already in scimitar learn, including pre-processing of data, feature selection, feature extraction, train/test splitting, defining the algorithms, fitting models, tuning parameters, prediction, evaluation, and exporting the model.
+		
+Machine learning algorithms benefit from the standardization of the data set. If there are some outliers, or different scales fields in your data set, you have to fix them
+
+`from sklearn import preprocessing `
+`x = preprocessing.StandardScaler().fit(X).transform(X)`
+
+The preprocessing package of scikit learn provides several common utility functions and transformer classes to change raw feature vectors into a suitable form of vector for modeling.
+
+`From sklearn.model_selection import train_test_split`
+`x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.33) `
+
+You have to split the model into training and testing sets to train you model and then test the model’s accuracy separately. 
+
+scikit learn can split arrays or matrices into random train and test subsets for you in one line of code. Then, you can setup your algorithm. 
+
+For example, you can build a classifier using a support vector classification algorithm.
+
+`From sklearn import svm `
+`clf = svm.SVC(gamma=0.001, C=100.)`
+
+We call our estimator instance clf, and initialize its parameters.
+Now you can train your model with your train set
+
+`clf.fit(x_train, y_train)`
+
+By passing our training set to the fit method, the clf model learns to classify unknown cases, then, we can use our test set to run predictions and the result tells us what the class for each unknown value is.
+
+`clf.predict(x_test)`
+
+Also, you can use different metrics to evaluate your model accuracy, for example, using a confusion matrix to show the result
+
+`from sklearn.metrics import confusion_matrix`
+`print(confusion_matrix(y_test, yhat, labels=[1,0])`
+
+Finally, you save your model. The entire process can be done with a few lines of code, but it will not be that easy if you only use these libraries 
+
+`Import pickle `
+`S = pickle.dumps(clf)`
+
+What is cortical?
+
+# Supervised vs unsupervised
+Supervised
+		* supervising a machine learning model that might be able to produce classification regions like we see here
+		* we teach the model then with that knowledge, we can have it predict unknown or future instances
+		* how do we teach a model?
+			* we teach a model by training it with a labeled dataset
+			* example of cancer dataset
+				* attributes are the columns like clump, unitsize, uniShape, etc 
+				* the columns are features which includes the data.
+				* observation is a single row of the chart
+				* value of the data in this case is numerical and categorical. This dataset is made for classification, so that is the reason why it is categorical
+	* Two types of techniques
+		* classification and regression
+			* classification is the process of predicting discrete class labels or categories.
+			* regression is the process of predicting a continuous values
+Unsupervised learning 
+		* 	we do not supervised the model, but we let the model work on its own to discover information that may not be visible for the human eye 
+		* it means that the unsupervised algorithms trains on the dataset, and draws conclusions on UNLABELED data. 
+		* more difficult algorithms since we know little to no information about the data, or the outcomes that are to be expected.
+			* Dimension reduction
+				* this is done to make classification easier
+			* density estimation
+				* very simple concept that is mostly used to explore the data to find some structure within it.
+			* market basket analysis
+				* is a modeling technique based upon the theory that if you buy certain group of items, you are more likely to buy another group of items
+			* clustering
+				* clustering is the most popular machine learning techniques
+				* groups data points or objects that are somehow similar
+				* clustering analysis has many applications in different domains
+					* ex: banks desire to segment customers
+				* 	mainly used for discovering structure, summarization, and anomaly detection		
+	* 	unsupervised learning has fewer evaluation methods than supervised learning
+	* unsupervised learning has a less controllable environment since the machine is creating outcomes for us 
+
+	
