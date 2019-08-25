@@ -1,0 +1,117 @@
+# Decision Trees
+[image:EA0150AE-08BC-4F51-91ED-74934CE6A7A3-22319-00009813063769E8/Screen Shot 2019-08-21 at 11.53.18 PM.png]
+
+Which drug is more efficient for people with the same illness?
+
+Target is the drug that each person responded to. This is a binary classifier, use this to predict the class of an unknown patience. Decision trees are about testing an attribute and branching the cases, based on the result of the test.
+
+Each internal node corresponds to a test.
+And each branch corresponds to a result of the test. And each branch corresponds to a result of the test and each leaf node assigns a patient to a class.
+Now the question is how can we build such a decision tree?
+
+[image:0A65D340-F48A-4919-B2E0-1960EFA2B144-22319-00009850A805BABB/Screen Shot 2019-08-21 at 11.57.42 PM.png]
+
+* A decision tree can be constructed by considering the attributes one by one.
+* First, choose an attribute from our dataset.
+* Calculate the significance of the attribute in the splitting of the data.
+* In the next video, we will explain how to calculate the significance of an attribute,
+* to see if it’s an effective attribute or not.
+* Next, split the data based on the value of the best attribute.
+* Then, go to each branch and repeat it for the rest of the attributes.
+* After building this tree, you can use it to predict the class of unknown cases or, in
+* **our case, the proper Drug for a new patient based on his/her characterestics.**
+ 
+
+[image:672E72E3-33EB-4852-A6E3-2E5F735D02CF-22319-00009871FD8B8B90/Screen Shot 2019-08-22 at 12.00.06 AM.png]
+
+
+
+[image:1C304B91-C3D2-409A-AD9F-82CB125D28BF-22319-0000987ECAC60CF7/Screen Shot 2019-08-22 at 12.01.02 AM.png]
+
+The important part of making a decision tree, is to determine “which attribute is the best, or more predictable, to split data based on the feature. Lets say we pick “Cholesterol” as the first attribute to split data
+It will split our data into 2 branches.
+As you can see, if the patient has high “Cholesterol”, we cannot say with high confidence that Drug B might be suitable for him. 
+[image:D7FB6C95-4DB2-416F-B95F-387C69EB92C0-22319-000098B8B76BDF6C/Screen Shot 2019-08-22 at 12.05.10 AM.png]
+Lets try another attribute
+
+[image:9F4498CE-E64B-4E6D-9030-F10469C034ED-22319-000098BF5620EDEE/Screen Shot 2019-08-22 at 12.05.38 AM.png]
+
+The sex is better choice than the cholesterol choice
+
+Sex attribute is more significant or predictive than the cholesterol
+
+Indeed, “predictiveness” is based on decrease in “impurity” of nodes.
+We’re looking for the best feature to decrease the ”impurity” of patients in the leaves,
+after splitting them up based on that feature.
+**So, the “Sex” feature is a good candidate in the following case, because it almost found**
+the pure patients.
+
+Let’s go one step further.
+For the Male patient branch, we again test other attributes to split the subtree.
+We test “Cholesterol” again here.
+As you can see, it results in even more pure leaves.
+So, we can easily make a decision here.
+
+[image:9CDC8434-B31B-4D63-AE8D-C4012B9ABFC9-22319-000098DC8C3D05C6/Screen Shot 2019-08-22 at 12.07.43 AM.png]
+
+Pure node = if 100% of the cases, the nodes fall into a specific category of the target field. In fact the method uses recursive partitioning to split the training records into segments by minimizing the impurity at each step.
+
+For example, if a patient is “Male”, and his “Cholesterol” is “High”, we can
+certainly prescribe Drug A, but if it is “Normal”, we can prescribe Drug B with high confidence.
+As you might notice, the choice of attribute to split data is very important, and it is
+all about “purity” of the leaves after the split.
+A node in the tree is considered “pure” if, in 100% of the cases, the nodes fall into
+**a specific category of the target field.**
+In fact, the method uses recursive partitioning to split the training records into segments
+by minimizing the “impurity” at each step.
+”Impurity” of nodes is calculated by “Entropy” of data in the node.
+So, what is “Entropy”?
+	
+Entropy is the amount of randomness in the data or uncertainty, so we look for the smallest entropy
+
+[image:CECD0A1D-A8EE-453D-9E1A-C39EC2FF3B06-22319-000099135CBB9B3C/Screen Shot 2019-08-22 at 12.11.39 AM.png]
+
+
+Minimize the entropy is our goal, so we should go to each of the attributes and find which one is the best or has the lowest entropy
+
+[image:E90A890C-4331-4538-BBB4-F7F75EF53174-22319-0000992D2282E703/Screen Shot 2019-08-22 at 12.13.30 AM.png]
+
+Calculating its entropy, we can see it would be 1.0.
+We should go through all the attributes and
+calculate the “Entropy” after the split, and then chose the best attribute.
+
+Now, the question is, between the Cholesterol and Sex attributes, which one is a better
+choice?
+Which one is better as the first attribute to divide the dataset into 2 branches?
+Or, in other words, which attribute results in more pure nodes for our drugs?
+Or, in which tree, do we have less entropy after splitting rather than before splitting?
+The “Sex” attribute with entropy of 0.98 and 0.59, or the “Cholesterol” attribute
+**with entropy of 0.81 and 1.0 in its branches?**
+
+
+[image:32D49367-9067-4B92-A479-08660414940D-22319-0000994D9475B197/Screen Shot 2019-08-22 at 12.15.49 AM.png]
+
+
+## Information gained - opposite of entropy
+
+[image:A26A5DBC-4ABD-4473-9C9F-E03595D5A2A2-22319-0000995DCAE86487/Screen Shot 2019-08-22 at 12.16.59 AM.png]
+
+Now, the question is, between the Cholesterol and Sex attributes, which one is a better
+choice?
+Which one is better as the first attribute to divide the dataset into 2 branches?
+Or, in other words, which attribute results in more pure nodes for our drugs?
+Or, in which tree, do we have less entropy after splitting rather than before splitting?
+The “Sex” attribute with entropy of 0.98 and 0.59, or the “Cholesterol” attribute
+**with entropy of 0.81 and 1.0 in its branches?**
+
+[image:55CC4DB9-1CB7-4D7A-8A0C-70B866707C47-22319-0000998D4FBA6716/Screen Shot 2019-08-22 at 12.20.23 AM.png]
+
+As you can see, we will consider the entropy over the distribution of samples falling under
+each leaf node, and we’ll take a weighted average of that entropy – weighted by the
+proportion of samples falling under that leaf.
+We can calculate the information gain of the tree if we use “Cholesterol” as well.
+It is 0.48.
+Now, the question is, “Which attribute is more suitable?”
+
+The sex attribute is selected as the first splitter, then we should repeat the process with the next branch and test of the other attributes to continue to reach the most pure leaves
+

@@ -1,0 +1,63 @@
+# Logistic regression
+	1. 	This is used for classification
+		1. What kind of problems can we solved with logistic regression
+			1. Logistic regression is a classification algorithm for categorical variables based on the values of the input fields
+			2. Who is leaving the company and why? 
+		
+[image:FAEF2671-23B1-4063-8908-B5E844F52D30-22319-00009EC164D37691/Screen Shot 2019-08-22 at 10.03.43 AM.png]
+
+Predict the future churn within the customer group. We can use logistic regression to build a model for predicting customer churn, using the given features. In logistic regression, we use one or more independent variables such as tenure, age, and income to predict an outcome, such as churn, which we call a dependent variable, representing whether or not customers will stop using the service. 
+
+Logistic regression is analogous to linear regression but tries to predict categorical or discrete target field instead of a numeric one
+
+In **linear regression**, we might try to predict a continuous value of variables such as the price of a house, blood pressure of a patient, or fuel consumption of a car, but in logistic regression, we predict a variable which is binary, such as, yes/ No
+
+Logistic regression is a classification algorithm for categorical variables. In logistic regression, dependent variables should be continuous, if categorical, they should be dummy or indicator-coded. This means that we have to transform them to some continuous value.
+
+Please note that logistic regression can be used for both binary classification and multiclass classification, but for simplicity, in this video, we’ll focus on binary classification.
+
+Examples of usages of logistic regression:
+		* 	predicting the probability of a person having a hearth attack ( based of the knowledge of the person’s age, sex, and body mass index
+		* predicting the mortality in injured patients
+		* Predicting a customer’s propensity to purchase a product or halt a subscription
+		* predicting the probability of failure of a given process or product
+		* predicting the likelihood of a homeowner defaulting on a mortgage
+
+1. When should we use logistic regression
+	* first, when the target field of your data is categorical, or specifically, is binary, such as 0/1, yes/no, churn or no churn, positive/negative, and so on
+	* second, you need the probability of your prediction, for example, if you want to know what the probability is, of a customer buying a product.
+Logistic regression returns a probability score between 0 and 1 for a given sample of data. In fact, logistic regression predicts the probability of that sample, and we map the cases to a discrete class based on that probability.
+
+This if you data is linearly separable, the decision boundary of logistic regression is a line or a plane or a hyper-plane
+
+[image:47648234-A159-46BC-AFAD-544BC7DE400B-22319-00009FD1FD860E6D/Screen Shot 2019-08-22 at 10.23.14 AM.png]
+
+The decision boundary of logistic regression is a line or a plane or a hyper-plane. A classifier will classify all the points on one side of the decision boundary as belonging to one class and all those on the other side as belonging to the other class.
+For example, if we have just two features (and are not applying any polynomial processing), we can obtain an inequality like θ_0+ θ_1 x_1+ θ_2 x_2 > 0, which is a half-plane,
+easily plottable. Please note that in using logistic regression, we can also achieve a complex decision boundary.
+
+Fourth, you need to understand the impact of a feature. You can select the best features based on the statistical significance of the logistic regression model coefficients or parameters.
+
+That is, after finding the optimum parameters, a feature x with the weight θ_1 close to
+0, has a smaller effect on the prediction, than features with large absolute values of
+θ_1.
+**Indeed, it allows us to understand the impact an independent variable has on the dependent** variable while controlling other independent variables.
+
+Model: 
+
+Remember, for simplicity we changed the values of yes/no to 1/0
+
+
+[image:E9708CA8-FDB8-4C22-B998-DDC43E5BBA4B-22319-0000A00E20FBDBB5/Screen Shot 2019-08-22 at 10.27.31 AM.png]
+
+
+The goal of logistic regression is to build a model to predict the class of each sample
+(which in this case is a customer) as well as the probability of each sample belonging
+Given that, let’s start to formalize the problem.
+X is our dataset, in the space of real numbers of m by n, that is, of m dimensions or features
+and n records.
+And y is the class that we want to predict, which can be either zero or one.
+Ideally, a logistic regression model, so called y^ (y-hat), can predict that the class of
+a customer is 1, given its features x.
+It can also be shown quite easily, that the probability of a customer being in class 0
+can be calculated as 1 minus the probability that the class of the customer is 1.

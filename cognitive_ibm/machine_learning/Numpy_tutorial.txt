@@ -1,0 +1,42 @@
+# Numpy tutorial
+1. Numpy is a multidimensional array library. You can use Numpy to store all sorts of data 
+[image:C97E98F1-CD5A-468D-9ECD-2AEF3E96007C-22319-00003B7AB10841BA/Screen Shot 2019-08-19 at 10.42.39 AM.png]
+
+	* why do you use Numpy over list?
+		* The main difference comes from the speed, lists are very slow, meanwhile Numpy is very fast 
+			* The reason for this is Numpy uses fixed types
+			* lists use a build in n-type while Numpy arrays scaled depending on the number
+			* lists requires your to have a size, reference count, object type, and object value. Each one is an 8 byte long scape
+			* so lists requires a lot more space and the computer needs to read more 
+			* No type checking when iterating through objects
+			* Numpy array uses continue memory while the pointer based
+				* SIMD vector processing, perform computation of all the values at one time
+				* We used effectively Cache utilization
+	* Within numpy you can do loads more than lists
+	* 
+[image:5172473D-BD2D-4B42-AD32-6A4C9197C47B-22319-00003C027503BF24/Screen Shot 2019-08-19 at 10.52.22 AM.png]
+
+Applications of numpy?
+	* Mathematics (matlab replacement) -scifi library has even more
+	* 	it is useful for plotting
+	* this is the backend of many applications( pandas, connect 4, digital photography)
+	* machine learning - this is the idea of tensor, so tensor library is pretty connected to numpy
+	* 
+[image:ECBF2DEF-3D2D-4527-9FBA-36821624C320-22319-000044036943ECBB/Screen Shot 2019-08-19 at 1.19.03 PM.png]
+1. Links to help you more
+	1. [Why Python is Slow: Looking Under the Hood | Pythonic Perambulations](https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)
+	2. [Indexing — NumPy v1.13 Manual](https://docs.scipy.org/doc/numpy-1.13.0/user/basics.indexing.html)
+	3. [Array creation routines — NumPy v1.17 Manual](https://docs.scipy.org/doc/numpy/reference/routines.array-creation.html)
+	4. [Mathematical functions — NumPy v1.17 Manual](https://docs.scipy.org/doc/numpy/reference/routines.math.html)
+	5. [Linear algebra (numpy.linalg) — NumPy v1.17 Manual](https://docs.scipy.org/doc/numpy/reference/routines.linalg.html)
+
+1. Build this game 
+	1.  [https://www.youtube.com/watch?v=UYgyRArKDEs](https://www.youtube.com/watch?v=UYgyRArKDEs) 
+2. Plotting 
+	1. [Intro to Data Visualization in Python with Matplotlib! (line graph, bar chart, title, labels, size) - YouTube](https://www.youtube.com/watch?v=DAQNHzOcO5A)
+	
+# Why python is so slow
+[Why Python is Slow: Looking Under the Hood | Pythonic Perambulations](https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)
+
+
+[image:C6F3407F-AD57-4127-BEF9-CB2755422DF6-22319-00007DB2CA7A8064/Screen Shot 2019-08-21 at 10.10.54 AM.png]
