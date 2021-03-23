@@ -1,0 +1,185 @@
+# Classification cognitive tutorial 
+	* A supervised learning approach
+	* categorizing some unknown items into a discrete set of categories or classes
+	* the target attribute is a categorical variable
+	
+
+[image:BEC4CBA2-14D9-451F-80CD-E2CE369A22C4-22319-00007703308D2286/Screen Shot 2019-08-20 at 11.05.49 PM.png]
+
+The above was for binary classification, but we can also do the same with multivariable classification
+
+The following predicts what type of drug is appropriate for the patient 
+
+[image:C6B2F2B1-164F-40F4-9618-4CF8930B20AE-22319-0000772B87F934AB/Screen Shot 2019-08-20 at 11.08.43 PM.png]
+
+Which category a customer belongs to?
+[image:0276994E-4D40-4116-8191-2E0022C820DF-22319-000078FC630E351D/Screen Shot 2019-08-20 at 11.41.59 PM.png]
+
+
+[image:4AB70C36-9A5F-4790-9C71-C4200DE70205-22319-00007903FDCF8FA9/Screen Shot 2019-08-20 at 11.42.31 PM.png]
+
+1. Classification algorithms in machine learning
+	1. Decisions Trees ( ID#, C4.5, c5.0)
+	2. Naive Bayes
+	3. Linear discriminant analysis
+	4. K-nearest neighbor
+	5. Logistic regression
+	6. Neural networks
+	7. Support vector Machines (SVM)
+
+#  K-nearest neighbors
+	1. Given the data and the predefined labels, we need to defined a model that is used to predict the class of a new or unknown case.
+		1. Our objective is to build a classifier. For example, using there row 0 to 7 to predict the class of row 8 
+		
+[image:21E09F78-22EA-4002-954B-C67260CFB777-22319-00007979DE4FB736/Screen Shot 2019-08-20 at 11.50.55 PM.png]
+
+
+
+[image:919A5C03-8951-48C4-A8CF-0F336691332B-22319-0000797EA1A682ED/Screen Shot 2019-08-20 at 11.51.19 PM.png]
+
+
+Lets use just two fields as predictor, specifically age and income
+\
+[image:29E35685-4C28-4115-9B41-EC1CFE15F428-22319-0000799F4B06F397/Screen Shot 2019-08-20 at 11.53.39 PM.png]
+
+1-NN is of class 4: Total Service, but how can we trust this judgement? Since this might be a special case or an outlier.
+
+What if we choose the 5 nearest neighbors to classify the new entry?
+
+
+[image:61B3A087-8379-4997-9418-D961D52D60D8-22319-000079B2D3172B01/Screen Shot 2019-08-20 at 11.55.03 PM.png]
+
+
+In this case 5-NN -> 3: Plus Service
+
+The K-nearest neighbors algorithm is a classification algorithm that takes a bunch of points and uses them to learn how to label other points
+
+[image:67F58D64-F6DC-49D7-9D7E-BF5A3BC9BCAA-22319-000079C5D5B1CCAF/Screen Shot 2019-08-20 at 11.56.23 PM.png]
+
+Uclediant distance
+The following is how k-nearest neighbor
+
+[image:D265F28F-7BAE-49A6-9AE0-99CF5517D765-22319-000079D13E5A74DF/Screen Shot 2019-08-20 at 11.57.14 PM.png]
+
+1. But how do we select the correct k? 
+2. How do we compute the similarity between cases?
+	* use a specifically type of minkowsi distance to calculate the distance of these customers. This is the ukledian distance
+	
+[image:78D74C32-1C2E-4237-B795-E7AA775F585F-22319-000079F3D2671454/Screen Shot 2019-08-20 at 11.59.42 PM.png]
+
+1. What if we have more than one feature, for example age and income? 
+	1. 
+[image:1FA7D57C-B9C6-44BF-A81F-E0FEC502BCE8-22319-000079FFCB36A897/Screen Shot 2019-08-21 at 12.00.33 AM.png]
+
+How do we choose the right k? 
+	1. A low value of k causes a highly complex model and might result in overfitting since we are capturing the noise. So our prediction process is not generalized enough to be used for out-of-sample cases. So overfitting is terrible because we want our model to work on any data and generalize, not just the data used for training.
+	2. If we choose a high value for k, then the model becomes overly generalized, so how we can find the best value for k? 
+		1. The general solution is to reserve a part of your data for accuracy of the model. Once you’ve done so, choose k=1, and the use the training part for modeling, and calculate the accuracy of prediction using all samples in your test set
+
+It can also be used to compute values for a continuous target. In this situation, the average median target value of the nearest neighbors is used to obtain the predicted value for the new case.
+
+For example, assume that you are predicting the price of a home based on its feature set,
+such as number of rooms, square footage, the year it was built, and so on.
+You can easily find the three nearest neighbor houses, of course — not only based on distance, but also based on all the attributes, and then predict the price of the house, as the median of neighbors.
+
+[image:D46D3DA2-7616-4F31-B6FD-A0810E73C774-22319-00007A65DBF5A260/Screen Shot 2019-08-21 at 12.07.52 AM.png]
+
+
+
+# Evaluation Metrics
+1. Evaluation metrics explains the performance of a model, basically we compare the actual values in the test set with the values predicted by the model, to calculate the accuracy of the model
+
+
+[image:9E46C7DB-2047-43DE-8E2E-9F6850232209-22319-00007A99CDEB1B93/Screen Shot 2019-08-21 at 12.11.33 AM.png]
+
+
+There are different model evaluation metrics but we talk about three of them here, specifically; jacquard index, f1 score, and log loss
+
+
+[image:876CF373-4D61-4BB3-AE11-E2D5FC1356A7-22319-00007ABB33C2475B/Screen Shot 2019-08-21 at 12.13.58 AM.png]
+
+Another way is to look at a confusion matrix
+
+Each confusion matrix row shows the Actual/True labels in the test set, and the columns show
+the predicted labels by classifier.
+Look at the first row.
+The first row is for customers whose actual churn value in the test set is 1.
+As you can calculate, out of 40 customers, the churn value of 15 of them is 1.
+And out of these 15, the classifier correctly predicted 6 of them as 1, and 9 of them as 0.
+This means that for 6 customers, the actual churn value was 1, in the test set, and the
+classifier also correctly predicted those as 1.
+However, while the actual label of 9 customers was 1, the classifier predicted those as 0,
+which is not very good.
+We can consider this as an error of the model for the first row.
+What about the customers with a churn value 0?
+Let’s look at the second row.
+It looks like there were 25 customers whose churn value was 0.
+**The classifier correctly predicted 24 of them as 0, and one of them wrongly predicted as 1.**
+~So, it has done a good job in predicting the customers with a churn value of 0.~
+A good thing about the confusion matrix is that it shows the model’s ability to correctly
+predict or separate the classes.
+In the specific case of a binary classifier, such as this example, we can interpret these numbers as the count of true positives, false positives, true negatives, and false negatives.
+Based on the count of each section, we can calculate the precision and recall of each
+label.
+**Precision is a measure of the accuracy**, provided that a class label has been predicted.
+It is defined by: precision = True Positive / (True Positive + False Positive).
+And Recall is the true positive rate.
+It is defined as: Recall = True Positive / (True Positive + False Negative).
+So, we can calculate the precision and recall of each class.
+
+
+[image:D463AFB2-7480-4CD5-8704-3A6F0F769C03-22319-00007B2CF463CD8D/Screen Shot 2019-08-21 at 12.22.07 AM.png]
+
+* **true positives (TP):** These are cases in which we predicted yes (they have the disease), and they do have the disease.
+* **true negatives (TN):** We predicted no, and they don’t have the disease.
+* **false positives (FP):** We predicted yes, but they don’t actually have the disease. (Also known as a “Type I error.”)
+* **false negatives (FN):** We predicted no, but they actually do have the disease. (Also known as a “Type II error.”)
+
+This is a list of rates that are often computed from a confusion matrix for a binary classifier:
+* **Accuracy:** Overall, how often is the classifier correct?
+	* (TP+TN)/total = (100+50)/165 = 0.91
+* **Misclassification Rate:** Overall, how often is it wrong?
+	* (FP+FN)/total = (10+5)/165 = 0.09
+	* equivalent to 1 minus Accuracy
+	* also known as “Error Rate”
+* **True Positive Rate:** When it’s actually yes, how often does it predict yes?
+	* TP/actual yes = 100/105 = 0.95
+	* also known as “Sensitivity” or “Recall”
+* **False Positive Rate:** When it’s actually no, how often does it predict yes?
+	* FP/actual no = 10/60 = 0.17
+* **True Negative Rate:** When it’s actually no, how often does it predict no?
+	* TN/actual no = 50/60 = 0.83
+	* equivalent to 1 minus False Positive Rate
+	* also known as “Specificity”
+* **Precision:** When it predicts yes, how often is it correct?
+	* TP/predicted yes = 100/110 = 0.91
+* **Prevalence:** How often does the yes condition actually occur in our sample?
+	* actual yes/total = 105/165 = 0.64
+A couple other terms are also worth mentioning:
+* **Null Error Rate:** This is how often you would be wrong if you always predicted the majority class. (In our example, the null error rate would be 60/165=0.36 because if you always predicted yes, you would only be wrong for the 60 “no” cases.) This can be a useful baseline metric to compare your classifier against. However, the best classifier for a particular application will sometimes have a higher error rate than the null error rate, as demonstrated by the  [Accuracy Paradox](http://en.wikipedia.org/wiki/Accuracy_paradox) .
+* **Cohen’s Kappa:** This is essentially a measure of how well the classifier performed as compared to how well it would have performed simply by chance. In other words, a model will have a high Kappa score if there is a big difference between the accuracy and the null error rate. ( [More details about Cohen’s Kappa.](http://en.wikipedia.org/wiki/Cohen's_kappa) )
+* **F Score:** This is a weighted average of the true positive rate (recall) and precision. ( [More details about the F Score.](http://en.wikipedia.org/wiki/F1_score) )
+* **ROC Curve:** This is a commonly used graph that summarizes the performance of a classifier over all possible thresholds. It is generated by plotting the True Positive Rate (y-axis) against the False Positive Rate (x-axis) as you vary the threshold for assigning observations to a given class. ( [More details about ROC Curves.](http://www.dataschool.io/roc-curves-and-auc-explained/) )
+
+
+3.  Another accuracy metrics for classifier 
+ Sometimes, the output of a classifier is the probability of a class label, instead of the
+**label.** For example, in logistic regression, the output can be the probability of customer churn, i.e., yes (or equals to 1). This probability is a value between 0 and 1.
+Logarithmic loss (also known as Log loss) measures the performance of a classifier where
+the predicted output is a probability value between 0 and 1. So, for example, predicting a probability of 0.13 when the actual label is 1, would be bad and would result in a high log loss. We can calculate the log loss for each row using the log loss equation, which measures how far each prediction is, from the actual label. Then, we calculate the average log loss across all rows of the test set. It is obvious that more ideal classifiers have progressively smaller values of log loss.~ So, the classifier with lower log loss has better accuracy.
+
+[image:C01E4B70-264F-4F01-9FCD-47166022BF17-22319-00007B4F4A2508CE/Screen Shot 2019-08-21 at 12.24.34 AM.png]
+
+
+# 
+
+
+
+
+
+
+
+
+
+
+

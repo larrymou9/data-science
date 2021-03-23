@@ -1,0 +1,68 @@
+# Regression algorithms
+#### Can we  preidict the co2 emission for a 9 car 
+	* The dependen variables is highly dependent on the independent variables
+	* the key point to remember is that the dependent variable should be continuous 
+
+
+[image:81B1C143-1451-4B83-B341-0787FA415C68-369-000041EFD5AE7BFC/Screen Shot 2019-08-10 at 10.57.50 PM.jpg]
+
+
+We use regression as the model to predict the amount of emission every new car produces
+
+[image:6C85A8C0-5959-412A-B669-EB365D9FF6DA-369-0000424EEEB31378/Screen Shot 2019-08-10 at 11.04.38 PM.jpg]
+
+* simple regression
+	* with one independent variable is present
+	* it could be non-liner regression or linear regression
+* multiple regression
+	* multiple independent variables
+	* it could be linear regression or non-linear regression
+
+* Essentially we use regression when we want to estimate a continuous value
+	* One application could be sales forecasting
+	* satisfaction analysis
+	* price estimation
+	* Employment income
+	*
+
+Regression algorithms
+	* Ordinal regression]
+	* poisson regression
+	# fast forest quantile regression
+	* linear, polynomial, lasso, stepwise, Ridge regression
+	* Bayesian linear regression
+	* neural network regression
+	* decision forest regression
+	* boosted decision tree regression
+	* KNN (K-nearest neighbors)
+
+# Linear regression
+	We can use linear regression to predict a continues variable using the independent variables
+		* 	parameters (coefficients of the fit line) should be minimized to avoid a large unit error or residual value ÿ - y 
+		* The idea is to find have to lowest MSE for the entire line
+	
+Two ways to find the coefficients:
+		1. First you use the data
+			* find the average of the independent and dependent variable
+			* then use the formula to find theta 1
+			
+[image:F26EBCC8-6E55-4F05-8A61-8FCFB410A210-369-000046AF57FB9C5B/Screen Shot 2019-08-11 at 12.56.48 PM.jpg]
+			
+
+Plug theta one once you find it and you will find theta 0 by calculation
+[image:21669167-6951-4661-9180-3D5C67CB286C-369-000046C168D7A0F9/Screen Shot 2019-08-11 at 12.58.10 PM.jpg]
+
+Theta 0 = biased coefficient
+Theta 1 = coefficient for the co2emissions 
+
+You don’t need to remember the formula because python can easily find this parameters for you 
+
+Polynomial of the line :
+[image:E3EFC88E-F2DE-40BE-9D4A-D2978A40CA71-369-000046E1FD8DEDEF/Screen Shot 2019-08-11 at 1.00.29 PM.jpg]
+
+[image:F832FF97-13A6-416A-A6F6-F97DC2DD73A9-369-000046FB8088819D/Screen Shot 2019-08-11 at 1.02.18 PM.jpg]
+
+This is the most basic regression and fast. It doesn’t required tunning of parameters
+	This is highly interpreter
+
+

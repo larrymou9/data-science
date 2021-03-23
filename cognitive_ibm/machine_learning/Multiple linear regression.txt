@@ -1,0 +1,31 @@
+# Multiple linear regression
+	* multiple independent variables present
+	* This is the extension of simple linear regression
+	* when should we use it
+		* Two main application:
+			* when we want to identify the strength of the effect that the independent variables have on a dependent variable
+
+
+* Predicting the impact of changes
+	* How much does blood pressure go up or down for every unit increase or decrease in the BMI of a patient?
+	* This is also a method of predicting a continuous variable
+	* The target value y is a linear combination of the multiple independent variables
+	* Theta is also call parameters or weight of vectors
+	
+[image:C7C97509-DAAF-4BA9-912F-2961149EE978-63619-0000B572D03C6D31/Screen Shot 2019-08-13 at 11.40.34 AM.png]
+
+
+* goal minimized the error of the prediction by optimizing the parameters
+* optimize parameters is the one that leads to the fewest errors
+* [image:3A41C3DD-9063-449D-8FA9-F72530F43326-63619-0000B5B9D2A668D5/Screen Shot 2019-08-13 at 11.45.40 AM.png]
+
+* objective is to minise the MSE
+* how do you estimate the value of the coefficients
+	* The most common methods are ordinary least squares and optimization approach
+	* ordinary Least squares = minimizes the MSE. Estimate the values of the coefficients by minimizing the MSE
+
+
+
+Steps:
+
+/auto/hosting/bin/Oracle/database/RBAC/ [SetOracleEnv.sh](http://setoracleenv.sh/) 
